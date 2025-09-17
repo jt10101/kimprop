@@ -1,5 +1,5 @@
 import { InputForm } from "./components/Form/Form";
-import { DisplayTable } from "./components/table/table";
+import { DisplayTable } from "./components/DisplayTable/DisplayTable";
 function App() {
   return (
     <>
