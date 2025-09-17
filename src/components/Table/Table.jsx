@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Table = () => {
+const DisplayTable = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default DisplayTable;
