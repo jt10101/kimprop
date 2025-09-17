@@ -20,15 +20,18 @@ const InputForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const formData = new URLSearchParams();
+    formData.append("name", formData.name);
+    formData.append("oa", formData.oa);
+    formData.append("cash", formData.cash);
+    formData.append("outstandingloan", formData.outstandingloan);
+
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbw8k12J_8DZuu_FXwLuXN6ht-gqSqGjvtKB8oPTKRKtpeRRgZ1uAvngyX8dvwPutPoOFA/exec",
+        "https://script.google.com/macros/s/AKfycbyW6EKb0yjYwOujYO7cj_-TY1niJr09Pm0yYN8czGfyzVbm5RayzLZDPsVs2ahpMQuoqA/exec",
         {
           method: "POST",
-          body: JSON.stringify(formData), // ✅ use formData directly
-          headers: {
-            "Content-Type": "application/json",
-          },
+          body: formData,
         }
       );
 
