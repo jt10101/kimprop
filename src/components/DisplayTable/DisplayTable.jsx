@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./DisplayTable.module.css";
 
 const DisplayTable = () => {
   const [rows, setRows] = useState([]);
@@ -21,7 +22,7 @@ const DisplayTable = () => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.tableContainer}>
       <h2>Sheet Data</h2>
       <table>
         <thead>
@@ -35,10 +36,10 @@ const DisplayTable = () => {
         <tbody>
           {rows.map((row, index) => (
             <tr key={index}>
-              <td>{row.Name}</td>
-              <td>{row.OA}</td>
-              <td>{row.Cash}</td>
-              <td>{row.OutstandingLoan}</td>
+              <td data-label="Name">{row.Name}</td>
+              <td data-label="OA">{row.OA}</td>
+              <td data-label="Cash">{row.Cash}</td>
+              <td data-label="Outstanding Loan">{row.OutstandingLoan}</td>
             </tr>
           ))}
         </tbody>
