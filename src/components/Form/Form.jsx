@@ -20,18 +20,19 @@ const InputForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new URLSearchParams();
-    formData.append("name", formData.name);
-    formData.append("oa", formData.oa);
-    formData.append("cash", formData.cash);
-    formData.append("outstandingloan", formData.outstandingloan);
+    // Use a different variable name
+    const payload = new URLSearchParams();
+    payload.append("name", formData.name);
+    payload.append("oa", formData.oa);
+    payload.append("cash", formData.cash);
+    payload.append("outstandingloan", formData.outstandingloan);
 
     try {
       const response = await fetch(
         "https://script.google.com/macros/s/AKfycbxMQ5zrYFRqjcwI4fv38ik4-MbD8mqrwcDs1N8uIdjhbWL_JBobJjLSV3nyFOWi3PIsoA/exec",
         {
           method: "POST",
-          body: formData,
+          body: payload,
         }
       );
 
