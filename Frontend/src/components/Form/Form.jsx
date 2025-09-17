@@ -22,10 +22,10 @@ const InputForm = () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyLf_Qwxuay-_bNqBI9aOLMQnYtmYkiCq902QsYAChvG9X2dTwtW7PqjuRUaRh6cs-K5w/exec",
+        "https://script.google.com/macros/s/AKfycbyvNq2ycUls20sNFGfYwMM_wiLmh4CvjbSgR--mX1lcr4Xk0AjWUMXgnRTWhAbVvuCECw/exec",
         {
           method: "POST",
-          body: JSON.stringify(formData),
+          body: JSON.stringify(formData), // ✅ use formData directly
           headers: {
             "Content-Type": "application/json",
           },
@@ -33,20 +33,19 @@ const InputForm = () => {
       );
 
       const result = await response.json();
-      if (result.result === "success") {
-        alert("Data saved to Google Sheets!");
-      } else {
-        alert("Something went wrong.");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Error sending data.");
+      console.log(result);
+      alert("Form submitted!");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong!");
     }
   };
 
   return (
     <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
+        {" "}
+        {/* ✅ attach handler here */}
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -55,7 +54,6 @@ const InputForm = () => {
           value={formData.name}
           onChange={handleChange}
         />
-
         <label htmlFor="oa">CPF OA Balance</label>
         <input
           type="number"
@@ -64,7 +62,6 @@ const InputForm = () => {
           value={formData.oa}
           onChange={handleChange}
         />
-
         <label htmlFor="cash">Cash</label>
         <input
           type="number"
@@ -73,7 +70,6 @@ const InputForm = () => {
           value={formData.cash}
           onChange={handleChange}
         />
-
         <label htmlFor="outstandingloan">Outstanding Loan</label>
         <input
           type="number"
@@ -82,7 +78,6 @@ const InputForm = () => {
           value={formData.outstandingloan}
           onChange={handleChange}
         />
-
         <button type="submit" className={styles.submitButton}>
           Submit
         </button>
