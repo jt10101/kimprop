@@ -22,7 +22,7 @@ const InputForm = () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyvNq2ycUls20sNFGfYwMM_wiLmh4CvjbSgR--mX1lcr4Xk0AjWUMXgnRTWhAbVvuCECw/exec",
+        "https://script.google.com/macros/s/AKfycbw8k12J_8DZuu_FXwLuXN6ht-gqSqGjvtKB8oPTKRKtpeRRgZ1uAvngyX8dvwPutPoOFA/exec",
         {
           method: "POST",
           body: JSON.stringify(formData), // ✅ use formData directly
