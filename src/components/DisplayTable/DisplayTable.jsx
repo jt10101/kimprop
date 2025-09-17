@@ -4,19 +4,20 @@ const DisplayTable = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://script.google.com/macros/s/AKfycbxKiM1swxAfj6uffIV1WCzbSHhkWEEwgne7WLir9aVRbq6ZjPyqmnBMQ5DucQ4IA2-I7Q/exec"
-        );
-        const data = await response.json();
-        setRows(data);
-      } catch (err) {
-        console.error("Error fetching sheet data:", err);
-      }
+    const script = document.createElement("script");
+    script.src =
+      "https://script.google.com/macros/s/AKfycbyUpHoJcz0DPgrL4MGlqQzj_6-r_bA8B93RZJGFTI_0EG1Ov9P3H-La6RxOmGJhRF3qXw/exec" +
+      "?callback=handleSheetData";
+    document.body.appendChild(script);
+
+    window.handleSheetData = (data) => {
+      setRows(data);
     };
 
-    fetchData();
+    return () => {
+      delete window.handleSheetData;
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
