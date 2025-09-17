@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./DisplayTable.module.css";
 
-const DisplayTable = () => {
+const DisplayTable = ({ lastUpdated }) => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const DisplayTable = () => {
       delete window.handleSheetData;
       document.body.removeChild(script);
     };
-  }, []);
+  }, [lastUpdated]);
 
   return (
     <div className={styles.tableContainer}>
