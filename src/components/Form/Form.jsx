@@ -28,7 +28,7 @@ const InputForm = () => {
 
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycbyW6EKb0yjYwOujYO7cj_-TY1niJr09Pm0yYN8czGfyzVbm5RayzLZDPsVs2ahpMQuoqA/exec",
+        "https://script.google.com/macros/s/AKfycbx_YJMSl8FHEF_yCfkQAUBpu8Y9aYa4AZ3Bp173DhGLb2WGHEkZy3kVITIanBZuYfQe/exec",
         {
           method: "POST",
           body: formData,
